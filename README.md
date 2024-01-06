@@ -19,15 +19,15 @@ This builds ```piersfinlayson/monero:0.18.01```, using monero branch ```release-
 ## Running
 
 ```
-run.sh <old_container_version> <new_container_version>
+run.sh <old_container_version> <new_container_version> <wallet_address>
 ```
 
 For example:
 ```
-run.sh 0.18.01 0.18.02
+run.sh 0.18.01 0.18.02 abcd1234...
 ```
 
-Will stop and remove any old container of version 0.18.01, and run a new instance of version 0.18.02.
+Will stop and remove any old container of version 0.18.01, and run a new instance of version 0.18.02, mining, with rewards going to wallet with address abcd1234...
 
 Will succeed even if there isn't an old version running.
 
