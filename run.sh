@@ -28,8 +28,10 @@ IMAGE_BASE="registry:80/monero"
 CONT_NAME_BASE=monero
 DATA_DIR_HOST=/usb/monero
 DATA_DIR_CONT=/monero
-HOST_PORT=18081
-CONT_PORT=18081
+HOST_PORT_RPC=18081
+CONT_PORT_RPC=18081
+HOST_PORT_P2P=18080
+CONT_PORT_P2P=18080
 
 OLD_CONT=$CONT_NAME_BASE-$OLD_VERSION
 NEW_CONT=$CONT_NAME_BASE-$NEW_VERSION
@@ -55,7 +57,8 @@ echo "Starting new container ..."
 docker run --restart always \
            --name $NEW_CONT \
            -v $DATA_DIR_HOST:$DATA_DIR_CONT \
-           -p $HOST_PORT:$CONT_PORT \
+           -p $HOST_PORT_RPC:$CONT_PORT_RPC \
+           -p $HOST_PORT_P2P:$CONT_PORT_P2P \
            -d \
            -e WALLET_ADDR=$WALLET_ADDR \
            $NEW_IMAGE

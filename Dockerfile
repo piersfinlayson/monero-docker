@@ -51,5 +51,5 @@ VOLUME ['/monero']
 ENV MONERO_PATH="/builds/monero/build/Linux/release-v$MONERO_VER/release/bin"
 ENV MONERO_BINARY="monerod"
 ENV PATH=$PATH:$MONERO_PATH
-CMD $MONERO_PATH/$MONERO_BINARY --no-igd --log-level 0 --data-dir /monero --non-interactive --start-mining $WALLET_ADDR
+CMD $MONERO_PATH/$MONERO_BINARY --no-igd --log-level 0 --data-dir /monero --non-interactive --confirm-external-bind --rpc-bind-ip 0.0.0.0 --p2p-bind-ip 0.0.0.0 --p2p-use-ipv6 --start-mining $WALLET_ADDR --mining-threads 4
 
